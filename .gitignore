@@ -1,52 +1,141 @@
-# Prerequisites
-*.d
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# BankChain .gitignore
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# General Ignore Patterns
+*.log
+*.tmp
+*.bak
+*.swp
+*.DS_Store
+*.env
+*.env.local
+*.env.*.local
 
-# Precompiled Headers
-*.gch
-*.pch
+# Node.js and JavaScript Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json  # Optional, depending on whether you use npm or yarn exclusively
+yarn.lock          # Optional, depending on your package manager preference
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# Hyperledger Fabric
+# Network artifacts and generated files
+/network/crypto-config/
+/network/fabric-ca/
+/network/ordererOrganizations/
+/network/peerOrganizations/
+/network/channel-artifacts/
+/network/*.block
+/network/*.tx
+/network/wallet/
+/network/*.pb
+/network/*.tar.gz
+/network/docker-compose-*.yml  # Backup or temp compose files
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# Chaincode build artifacts
+/chaincode/bin/
+/chaincode/build/
+/chaincode/vendor/
+/chaincode/*.out
+/chaincode/*.test
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Ethereum Sidechain (Solidity and Hardhat)
+/sidechain/artifacts/
+/sidechain/cache/
+/sidechain/coverage/
+/sidechain/coverage.json
+/sidechain/typechain/
+/sidechain/dist/
+/sidechain/*.tsbuildinfo
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# Hardhat-specific
+/sidechain/hardhat.config.ts.bak
+/sidechain/deployments/localhost/  # Local deployment artifacts
+/sidechain/deployments/*/*.json   # Exclude all deployment JSONs except those you want to commit
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# Bridge Middleware
+/bridge/logs/
+/bridge/*.log
+/bridge/wallet/
+/bridge/*.key
+
+# Docker
+*.dockerignore
+Dockerfile.*  # Backup or variant Dockerfiles
+/docker-compose.override.yml
+/docker/*.log
+/docker/volumes/
+/docker/data/
+
+# Kubernetes
+/k8s/*.yaml.bak
+/k8s/secrets/
+/k8s/*.kubeconfig
+
+# Testing
+/tests/coverage/
+/tests/*.log
+/tests/report/
+/tests/artifacts/
+
+# Build and Output Directories
+/build/
+/dist/
+/out/
+
+# Environment-Specific Files
+.env.development
+.env.test
+.env.production
+
+# Dependency Caches
+*.cache
+*.lock
+
+# Go-specific (Hyperledger Chaincode)
+/chaincode/*.mod
+/chaincode/*.sum
+/chaincode/go.sum
+/chaincode/.go/
+/chaincode/.gopath/
+
+# Python (if using for oracles)
+/oracles/__pycache__/
+/oracles/*.pyc
+/oracles/*.pyo
+/oracles/*.pyd
+/oracles/.venv/
+/oracles/venv/
+/oracles/env/
+
+# Chainlink-specific
+/chainlink/*.db
+/chainlink/logs/
+/chainlink/*.jsonl
+
+# Documentation Build Artifacts
+/docs/build/
+/docs/_site/
+/docs/*.pdf
+
+# Miscellaneous
+*.pem  # Certificates, unless intentionally committed
+*.key  # Private keys
+*.cert
+*.csr
+*.crt
+*.p12
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+
+# Project-specific exclusions (add custom files here)
+/custom_logs/
+/temp/
